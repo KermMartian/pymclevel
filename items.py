@@ -31,7 +31,7 @@ class Items(object):
         itemsdir = os.path.join(directories.getDataDir(), "Items")
 
         if not os.path.exists(itemsdir):
-            raise Exception("Couldn't find Item Files. Please reinstall MCEdit!")
+            raise Exception("Couldn't find Item Files at %s. Please reinstall MCEdit!" % itemsdir)
 
         for file_ in os.listdir(itemsdir):
             try:
