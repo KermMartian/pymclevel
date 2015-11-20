@@ -15,11 +15,10 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE."""
 import time
 t= time.time()
 import sys
-import os
+import inspect, os
 import json
 import glob
 import shutil
-
 
 def win32_utf8_argv():
     """Uses shell32.GetCommandLineArgvW to get sys.argv as a list of UTF-8
@@ -83,7 +82,8 @@ def getDataDir(path=""):
     #     '''
     #
     # else:
-    dataDir = os.getcwdu()
+    dataDir = os.path.dirname(os.path.abspath(inspect.stack()[0][1]))
+    #dataDir = os.getcwdu()
     if len(path) > 0:
         return os.path.join(dataDir, path)
     return dataDir
