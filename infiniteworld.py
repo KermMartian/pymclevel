@@ -1761,7 +1761,7 @@ class MCInfdevOldLevel(ChunkedLevelMixin, EntityLevel):
         if (cx, cz) in self._loadedChunkData:
             return True
 
-        return self.worldFolder.containsChunk(cx, cz)
+        return self.unsavedWorkFolder.containsChunk(cx, cz) or self.worldFolder.containsChunk(cx, cz)
 
     def containsPoint(self, x, y, z):
         if y < 0 or y > 127:
